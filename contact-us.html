@@ -49,7 +49,6 @@
                   name="last-name8"
                   placeholder="Last Name"
                   type="text"
-                  required
                 ></textarea>
               </div>
             </div>
@@ -112,7 +111,10 @@
     To : 'delta.alphastudios@gmail.com',
     From : document.getElementById("email")Value,
     Subject : "New Contact Us Form",
-    Body : "And this is the body"
+    Body : "First Name: " + document.getElementById("first name").value
+        + "<br> Last Name: " + document.getElementById("last name").value
+        + "<br> Email: " + document.getElementById("email").value
+        + "<br> Message: " + document.getElementById("message").value
 }).then(
   message => alert(message)
 );
