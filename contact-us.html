@@ -75,9 +75,9 @@
             <a href="submit-thank-you.html">
               <div class="submit-button">
                 <div class="submit-container">
-                  <a href="javascript:SubmitForm('form2')" onclick="window.event.stopPropagation()"
+                  <a href="javascript:SubmitForm('form2')" onclick="sendEmail()"
                     ><img class="submit-blue-box" src="img/submit-blue-box@1x.png" /> </a
-                  ><a href="javascript:SubmitForm('form2')" onclick="window.event.stopPropagation()"
+                  ><a href="javascript:SubmitForm('form2')" onclick="sendEmail()"
                     ><div class="submit segoeui-bold-supernova-54px">Submit</div>
                   </a>
                 </div>
@@ -102,27 +102,21 @@
         </div>
       </form>
     </div>
-    <script>
-      /* Copyright (c) 2016 Tobias Buschor https://goo.gl/gl0mbf | MIT License https://goo.gl/HgajeK */
-
-      if (!HTMLFormElement.prototype.reportValidity) {
-        HTMLFormElement.prototype.reportValidity = function () {
-          if (this.checkValidity()) return true;
-          var btn = document.createElement("button");
-          this.appendChild(btn);
-          btn.click();
-          this.removeChild(btn);
-          return false;
-        };
-      }
-
-      function SubmitForm(form_name) {
-        var form = document.getElementsByName(form_name)[0];
-        if (form.reportValidity()) {
-          form.submit();
-          if (window.submitted) window.submitted();
-        }
-      }
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+ <script>
+    Function sendEmail(){
+      Email.send({
+    Host : "smtp.yourisp.com",
+    Username : "username",
+    Password : "password",
+    To : 'them@website.com',
+    From : "you@isp.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+    }
     </script>
   </body>
 </html>
