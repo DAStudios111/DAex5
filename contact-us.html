@@ -74,7 +74,7 @@
             <a href="submit-thank-you.html">
               <div class="submit-button">
                 <div class="submit-container">
-                  <a href="javascript:SubmitForm('form2')" onclick="sendEmail()"
+                  <a href="javascript:SubmitForm('form2')" onclick="sendEmail(); reset(); return false;">
                     ><img class="submit-blue-box" src="img/submit-blue-box@1x.png" /> </a
                   ><a href="javascript:SubmitForm('form2')" onclick="sendEmail()"
                     ><div class="submit segoeui-bold-supernova-54px">Submit</div>
@@ -102,7 +102,8 @@
       </form>
     </div>
     <script src="https://smtpjs.com/v3/smtp.js">
-</script>
+
+    </script>
     Function sendEmail(){
       Email.send({
     Host : "smtp.gmail.com",
